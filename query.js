@@ -10,7 +10,7 @@ var BPromise = require('bluebird');
  */
 exports.authenticate = function (database, username, password, options) {
     return new BPromise(function (resolve, reject) {
-        db.authenticate(username, password, options, function (err, result) {
+        database.authenticate(username, password, options, function (err, result) {
             if (err) {
                 reject(err);
             } else {
