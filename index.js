@@ -20,11 +20,17 @@ connection.connect()
         connection.disconnect(db);
     });
 
-var getAll = function (col) {
+/**
+ * Get all the Documents of a MongoDB Collection
+ * @param   {String} collection     The MongoDB Collection name
+ * @resolve {Array}  documents      The Documents of that collection
+ * @reject  {Error}  err            The Error Object
+ */
+var getAll = function (collection) {
     return new BPromise(function (resolve, reject) {
-        var collection = db.collection(col);
+        var col = db.collection(collection);
 
-        collection.find().toArray(function (err, documents) {
+        col.find().toArray(function (err, documents) {
             if (err) {
                 reject(err);
             } else {
@@ -34,11 +40,17 @@ var getAll = function (col) {
     });
 };
 
-var clearAll = function (col) {
+/**
+ * Clear all Documents of a MongoDB Collection
+ * @param   {String} collection     The MongoDB Collection name
+ * @resolve {Object} removed        The Documents removed
+ * @reject  {Error}  err            The Error Object
+ */
+var clearAll = function (collection) {
     return new BPromise(function (resolve, reject) {
-        var collection = db.collection(col);
+        var col = db.collection(collection);
 
-        collection.remove({}, function (err, removed) {
+        col.remove({}, function (err, removed) {
             if (err) {
                 reject(err);
             } else {
@@ -48,11 +60,18 @@ var clearAll = function (col) {
     });
 };
 
-var insertInto = function (col, data) {
+/**
+ * Inserts Documents into a MongoDB Collection
+ * @param   {String} collection The MongoDB Collection name
+ * @param   {Object} data       The Documents to be inserted
+ * @resolve {Object} results    The results
+ * @reject  {Error}  err        The Error Object
+ */
+var insertInto = function (collection, data) {
     return new BPromise(function (resolve, reject) {
-        var collection = db.collection(col);
+        var col = db.collection(collection);
 
-        collection.insert(data, function (err, results) {
+        col.insert(data, function (err, results) {
             if (err) {
                 reject(err);
             } else {
