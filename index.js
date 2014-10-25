@@ -14,11 +14,11 @@ connection.connect()
         connection.disconnect(db);
     });
 
-var getAll = function (collection) {
+var getAll = function (col) {
     return new BPromise(function (resolve, reject) {
-        var col = db.collection(collection);
+        var collection = db.collection(col);
 
-        col.find().toArray(function (err, documents) {
+        collection.find().toArray(function (err, documents) {
             if (err) {
                 reject(err);
             } else {
@@ -28,17 +28,25 @@ var getAll = function (collection) {
     });
 };
 
-var clearAll = function (collection) {
+var clearAll = function (col) {
     return new BPromise(function (resolve, reject) {
-        var col = db.collection(collection);
+        var collection = db.collection(col);
 
-        // REMOVE
         collection.remove({}, function (err, removed) {
             if (err) {
                 reject(err);
             } else {
                 resolve(removed);
             }
+        });
+    });
+};
+
+var insertInto = function (col, data) {
+    return new BPromise(function (resolve, reject) {
+        var collection = db.collection(col);
+
+        collection.insert(data, function (err, results) {
         });
     });
 };
