@@ -1,4 +1,4 @@
-var Promise = require('bluebird');
+var BPromise = require('bluebird');
 var connection = require('./db');
 
 var db;
@@ -19,7 +19,7 @@ connection.connect()
 var getAll = function (collection) {
     'use strict';
 
-    return new Promise(function (resolve, reject) {
+    return new BPromise(function (resolve, reject) {
         var col = db.collection(collection);
 
         col.find().toArray(function (err, documents) {

@@ -1,4 +1,4 @@
-var Promise = require('bluebird');
+var BPromise = require('bluebird');
 var MongoClient = require('mongodb').MongoClient;
 
 exports.connect = function (host, port, db) {
@@ -10,7 +10,7 @@ exports.connect = function (host, port, db) {
 
     var url = 'mongodb://' + fallback(host, 'localhost') + ':' + fallback(port, 27017) + '/' + fallback(db, 'mydb');
 
-    return new Promise (function (resolve, reject) {
+    return new BPromise (function (resolve, reject) {
         MongoClient.connect(url, function (err, db) {
             if (err) {
                 reject(err);
