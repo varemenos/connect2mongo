@@ -6,7 +6,9 @@ A library to help your node.js application connect to mongodb
 
 ## Installation
 
-`npm install -S connect2mongo`
+```bash
+npm install -S connect2mongo
+```
 
 ## Usage
 
