@@ -1,5 +1,6 @@
 var BPromise = require('bluebird');
 var MongoClient = require('mongodb').MongoClient;
+var Logger = require('mongodb').Logger;
 
 /**
  * Establish connection to a MongoDB database
@@ -21,6 +22,13 @@ exports.connect = function (host, port, db) {
             if (err) {
                 reject(err);
             } else {
+                Logger.setLevel('info');
+
+                Logger.setCurrentLogger(function (msg, context) {
+                    console.log(msg);
+                    console.log(context);
+                });
+
                 resolve(database);
             }
         });
