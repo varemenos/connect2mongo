@@ -1,6 +1,6 @@
 {
   "name": "connect2mongo",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A library to help you connect to mongodb",
   "main": "db.js",
   "scripts": {
