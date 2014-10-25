@@ -25,7 +25,7 @@ exports.connect = function (host, port, db, username, password) {
         }
     };
 
-    var url = 'mongodb://' + fallback(genUser(auth), '') + fallback(host, 'localhost') + ':' + fallback(port, 27017) + '/' + fallback(db, 'mydb');
+    var url = 'mongodb://' + fallback(genUser(username, password), '') + fallback(host, 'localhost') + ':' + fallback(port, 27017) + '/' + fallback(db, 'mydb');
 
     return new BPromise (function (resolve, reject) {
         MongoClient.connect(url, function (err, database) {
