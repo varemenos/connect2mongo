@@ -7,18 +7,19 @@ var Logger = require('mongodb').Logger;
  * @param   {String} host       mongod Hostname
  * @param   {String} port       mongod Port
  * @param   {String} db         MongoDB Database
- * @param   {Object} auth       An object containing User Authentication information {user: 'user1', password: 'pass'}
+ * @param   {String} username   The Username for authentication
+ * @param   {String} password   The Password for authentication
  * @resolve {Object} database   A MongoDB Connection Instance
  * @reject  {Error}  err        The Error Object
  */
-exports.connect = function (host, port, db, auth) {
+exports.connect = function (host, port, db, username, password) {
     var fallback = function (value, fallback) {
         return value || fallback;
     };
 
-    var genUser = function (auth) {
-        if (auth.user && auth.pas) {
-            return fallback(auth.user) + ':' + fallback(auth.password) + '@';
+    var genUser = function (username, password) {
+        if (username && password) {
+            return fallback(username) + ':' + fallback(password) + '@';
         } else {
             return false;
         }
