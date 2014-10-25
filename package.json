@@ -1,13 +1,13 @@
 {
-  "name": "nodejs-thess-cli-lib",
-  "version": "1.0.0",
-  "description": "",
+  "name": "connect2mongo",
+  "version": "0.0.1",
+  "description": "A library to help you connect to mongodb",
   "main": "db.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Adonis K.",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "bluebird": "^2.3.6",
     "mongodb": "^2.0.4"
