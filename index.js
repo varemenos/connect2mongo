@@ -1,22 +1,37 @@
 var Promise = require('bluebird');
 var connection = require('./db');
 
-var db = connection.connect();
-db.then(function (db) {
-    'use strict';
-    getAll('testData').then(function (documents) {
+var db;
+
+connection.connect()
+    .then(function(database) {
+        'use strict';
+        db = database
+        return getAll('testData');
+    })
+    .then(function(documents) {
         console.log(documents);
         connection.disconnect(db);
     });
-});
 
-var getAll = function (collection) {
+// connection.connect()
+//     .then(function(database) {
+//         'use strict';
+//         db = database
+//         return getAll('testData').then(function(documents) {
+//             console.log(documents);
+//             connection.disconnect(db);
+//         });
+//     });
+
+
+var getAll = function(collection) {
     'use strict';
 
-    return new Promise(function (resolve, reject) {
+    return new Promise(function(resolve, reject) {
         var col = db.collection(collection);
 
-        col.find().toArray(function (err, documents) {
+        col.find().toArray(function(err, documents) {
             if (err) {
                 reject(err);
             } else {
