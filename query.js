@@ -3,6 +3,26 @@ var BPromise = require('bluebird');
 /**
  * Get all the Documents of a MongoDB Collection
  * @param   {String} database       A MongoDB Connection Instance
+ * @param   {String} username       The Username for authentication
+ * @param   {String} password       The Password for authentication
+ * @resolve {Object} result         The authentication's result
+ * @reject  {Error}  err            The Error Object
+ */
+exports.authenticate = function (database, username, password, options) {
+    return new BPromise(function (resolve, reject) {
+        db.authenticate(username, password, options, function (err, result) {
+            if (err) {
+                reject(err);
+            } else {
+                resolve(result);
+            }
+        });
+    });
+};
+
+/**
+ * Get all the Documents of a MongoDB Collection
+ * @param   {String} database       A MongoDB Connection Instance
  * @param   {String} collection     The MongoDB Collection name
  * @resolve {Array}  documents      The Documents of that collection
  * @reject  {Error}  err            The Error Object
