@@ -14,17 +14,6 @@ connection.connect()
         connection.disconnect(db);
     });
 
-// connection.connect()
-//     .then(function(database) {
-//         'use strict';
-//         db = database
-//         return getAll('testData').then(function(documents) {
-//             console.log(documents);
-//             connection.disconnect(db);
-//         });
-//     });
-
-
 var getAll = function(collection) {
     'use strict';
 
