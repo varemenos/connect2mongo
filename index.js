@@ -5,8 +5,6 @@ var db;
 
 connection.connect()
     .then(function (database) {
-        'use strict';
-
         db = database;
 
         return getAll('testData');
@@ -17,8 +15,6 @@ connection.connect()
     });
 
 var getAll = function (collection) {
-    'use strict';
-
     return new BPromise(function (resolve, reject) {
         var col = db.collection(collection);
 
@@ -33,8 +29,6 @@ var getAll = function (collection) {
 };
 
 var clearAll = function (collection) {
-    'use strict';
-
     return new BPromise(function (resolve, reject) {
         var col = db.collection(collection);
 

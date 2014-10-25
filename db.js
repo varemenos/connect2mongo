@@ -2,8 +2,6 @@ var BPromise = require('bluebird');
 var MongoClient = require('mongodb').MongoClient;
 
 exports.connect = function (host, port, db) {
-    'use strict';
-
     var fallback = function (value, fallback) {
         return value || fallback;
     };
@@ -22,16 +20,12 @@ exports.connect = function (host, port, db) {
 };
 
 exports.disconnect = function (db) {
-    'use strict';
-
     if (db) {
         db.close();
     }
 };
 
 // exports.insertSample = function () {
-//     'use strict';
-//     var collection = db.collection('testData');
 //     var sampleData = require('./sample.js').data;
 
 //     // REMOVE
