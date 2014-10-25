@@ -29,25 +29,25 @@ exports.disconnect = function (db) {
     }
 };
 
-exports.insertSample = function () {
-    'use strict';
-    var collection = db.collection('testData');
-    var sampleData = require('./sample.js').data;
+// exports.insertSample = function () {
+//     'use strict';
+//     var collection = db.collection('testData');
+//     var sampleData = require('./sample.js').data;
 
-    // REMOVE
-    collection.remove({}, function (err, removed) {
-    });
+//     // REMOVE
+//     collection.remove({}, function (err, removed) {
+//     });
 
-    // INSERT
-    collection.insert(sampleData, function (err, results) {
-    });
+//     // INSERT
+//     collection.insert(sampleData, function (err, results) {
+//     });
 
-    // GET
-    collection.find().toArray(function (err, docs) {
-        if (err) {
-            console.log(err.message);
-        } else {
-            console.log(docs);
-        }
-    });
-};
+//     // GET
+//     collection.find().toArray(function (err, docs) {
+//         if (err) {
+//             console.log(err.message);
+//         } else {
+//             console.log(docs);
+//         }
+//     });
+// };
