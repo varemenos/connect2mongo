@@ -31,3 +31,20 @@ var getAll = function (collection) {
         });
     });
 };
+
+var clearAll = function (collection) {
+    'use strict';
+
+    return new BPromise(function (resolve, reject) {
+        var col = db.collection(collection);
+
+        // REMOVE
+        collection.remove({}, function (err, removed) {
+            if (err) {
+                reject(err);
+            } else {
+                resolve(removed);
+            }
+        });
+    });
+};
