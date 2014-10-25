@@ -17,6 +17,7 @@ connection.connect()
     })
     .then(function (documents) {
         console.log(documents);
+        connection.disconnect(db);
     });
 
 var getAll = function (col) {
