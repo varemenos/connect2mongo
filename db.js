@@ -24,24 +24,3 @@ exports.disconnect = function (db) {
         db.close();
     }
 };
-
-// exports.insertSample = function () {
-//     var sampleData = require('./sample.js').data;
-
-//     // REMOVE
-//     collection.remove({}, function (err, removed) {
-//     });
-
-//     // INSERT
-//     collection.insert(sampleData, function (err, results) {
-//     });
-
-//     // GET
-//     collection.find().toArray(function (err, docs) {
-//         if (err) {
-//             console.log(err.message);
-//         } else {
-//             console.log(docs);
-//         }
-//     });
-// };

@@ -1,7 +1,6 @@
 var BPromise = require('bluebird');
 var connection = require('./db');
 var sampleData = require('./sample').data;
-
 var db;
 
 connection.connect()
