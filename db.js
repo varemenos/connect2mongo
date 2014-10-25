@@ -22,5 +22,7 @@ exports.connect = function (host, port, db) {
 exports.disconnect = function (db) {
     if (db) {
         db.close();
+    } else {
+        throw new Error('nothing to disconnect');
     }
 };
